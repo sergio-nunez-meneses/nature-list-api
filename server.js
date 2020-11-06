@@ -1,7 +1,6 @@
 const http = require('http');
 const debug = require('debug');
-const express = require('express');
-const app = express();
+const app = require('./app');
 
 // the global 'process' provides information about, and control over, the current nodejs process
 // the env property returns an object containing the user environment
@@ -61,8 +60,3 @@ function onListening() {
   const bind = typeof adress === 'string' ? 'pipe ' + adress : 'port: ' + port;
   debug('Listening on ' + bind);
 }
-
-// test server connection
-app.use('/', function(req, res, next) {
-  res.send({ status: 'connected!' });
-})
